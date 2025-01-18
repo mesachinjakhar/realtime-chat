@@ -2,6 +2,27 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+// handle form submit
+async function handleSubmit(values) {
+  try {
+    const response = await fetch("localhost:3001/singup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+    if (response.status === true) {
+      alert("Signup Success");
+    } else {
+      alert(response.message);
+    }
+  } catch (err) {
+    console.log("ERROR calling fetch");
+  }
+}
+
+// UI Component
 const Signup = () => {
   const formik = useFormik({
     initialValues: {
@@ -18,9 +39,7 @@ const Signup = () => {
         .min(6, "Password must be atleast 6 characters")
         .required("Password is required"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    onSubmit: handleSubmit,
   });
 
   return (
