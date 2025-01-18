@@ -1,5 +1,6 @@
 import ChatSection from "./components/ChatSection";
 import Auth from "./components/Auth";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
   return (
