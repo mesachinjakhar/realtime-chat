@@ -12,7 +12,7 @@ async function handleSubmit(values) {
       },
       body: JSON.stringify(values),
     });
-    if (response.status === true) {
+    if (response.status == true) {
       alert("Signup Success");
     } else {
       alert(response.message);
