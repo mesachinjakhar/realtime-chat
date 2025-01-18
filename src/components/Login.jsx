@@ -1,44 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Login = () => {
-  const [error, setError] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  function handleEmailChange(e) {
-    setError("");
-    setEmail(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setError("");
-    setPassword(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
+  const formik = useFormik({
+    initialValues: { email: "", password: "" },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Enter valid email")
+        .required("Email is required"),
+      password: Yup.string()
+        .min(6, "Password must be atleast 6 characters")
+        .required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      console.log("Form Submit", values);
+    },
+  });
 
   return (
     <div>
       <h1 className="text-3xl text-center">Login here</h1>
-      <form className="mt-5">
+      <form className="mt-5" onSubmit={formik.handleSubmit}>
         <label htmlFor="">Email</label>
         <input
-          value={email}
-          onChange={handleEmailChange}
           type="email"
-          name="email"
-          id=""
+          id="email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
+
+        {formik.touched.email && formik.errors.email ? (
+          <p className="text-red-600">{formik.errors.email}</p>
+        ) : null}
+
         <label htmlFor="">Password</label>
         <input
-          value={password}
-          onChange={handlePasswordChange}
           type="password"
+          id="password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          onBlur={formik.handleBlur}
         />
-        <p className="text-red-600">{error.length > 0 ? error : ""}</p>
-        <button className="mt-2" type="submit" onClick={handleSubmit}>
+
+        {formik.touched.password && formik.errors.password ? (
+          <p className="text-red-600">{formik.errors.password}</p>
+        ) : null}
+
+        <button className="mt-2" type="submit">
           Login
         </button>
       </form>

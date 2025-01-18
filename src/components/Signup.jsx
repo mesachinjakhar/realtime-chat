@@ -1,57 +1,71 @@
 import React, { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Signup = () => {
-  const [error, setError] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string()
+        .email("Enter valid email")
+        .required("Email is required"),
+      password: Yup.string()
+        .min(6, "Password must be atleast 6 characters")
+        .required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
-  function handleNameChange(e) {
-    setError("");
-    setName(e.target.value);
-  }
-
-  function handleEmailChange(e) {
-    setError("");
-    setEmail(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setError("");
-    setPassword(e.target.value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
   return (
     <div>
       <h1 className="text-3xl text-center">Signup here</h1>
-      <form className="mt-5">
+      <form onSubmit={formik.handleSubmit} className="mt-5">
         <label htmlFor="">Name</label>
         <input
-          value={name}
-          onChange={handleNameChange}
           type="text"
-          name="name"
-          id=""
+          id="name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
+
+        {formik.touched.name && formik.errors.name ? (
+          <p className="text-red-600">{formik.errors.name}</p>
+        ) : null}
+
         <label htmlFor="">Email</label>
         <input
-          value={email}
-          onChange={handleEmailChange}
           type="email"
-          name="email"
-          id=""
+          id="email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
+
+        {formik.touched.email && formik.errors.email ? (
+          <p className="text-red-600">{formik.errors.email}</p>
+        ) : null}
+
         <label htmlFor="">Password</label>
         <input
-          value={password}
-          onChange={handlePasswordChange}
           type="password"
+          id="password"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
-        <p className="text-red-600">{error.length > 0 ? error : ""}</p>
-        <button onClick={handleSubmit} className="mt-2">
+        {formik.touched.password && formik.errors.password ? (
+          <p className="text-red-600">{formik.errors.password}</p>
+        ) : null}
+
+        <button type="submit" className="mt-2">
           Signup
         </button>
       </form>
