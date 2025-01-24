@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { setUsername } from "../store/features/user/userSlice";
 import { generateUsername } from "../utils/generateUsername";
+import socket from "../socket";
 
 const Username = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,11 @@ const Username = () => {
     }),
     onSubmit: handleSubmit,
   });
+
+  // Emit event to add user in activeUsers
+  if (username.length > 0) {
+    socket.emit("set-user", username);
+  }
 
   if (username.length > 0 && currentChatOpen.length === 0) {
     return (
