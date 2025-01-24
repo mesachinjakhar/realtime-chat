@@ -2,12 +2,12 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { setUsername } from "../store/features/username/usernameSlice";
+import { setUsername } from "../store/features/user/userSlice";
 import { generateUsername } from "../utils/generateUsername";
 
 const Username = () => {
   const dispatch = useDispatch();
-  const username = useSelector((state) => state.usernameSlice.username);
+  const username = useSelector((state) => state.userSlice.username);
   const currentChatOpen = useSelector(
     (state) => state.currentOpenChatSlice.socketId
   );
