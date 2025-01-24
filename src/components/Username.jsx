@@ -7,9 +7,9 @@ import { generateUsername } from "../utils/generateUsername";
 
 const Username = () => {
   const dispatch = useDispatch();
-  const username = useSelector((state) => state.userSlice.username);
+  const username = useSelector((state) => state.user.username);
   const currentChatOpen = useSelector(
-    (state) => state.currentOpenChatSlice.socketId
+    (state) => state.currentOpenChat.socketId
   );
 
   function handleSubmit(values) {
