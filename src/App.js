@@ -1,6 +1,5 @@
 import ChatSection from "./components/ChatSection";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import CreateJoinRoom from "./components/CreateJoinRoom";
 import Username from "./components/Username";
 
 function App() {
