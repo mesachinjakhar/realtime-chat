@@ -2,65 +2,89 @@ import React from "react";
 
 const ActiveUsers = () => {
   return (
-    <div className="mt-5 h-[83vh] overflow-y-auto px-5">
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+    <div className="mt-5 h-[83vh] overflow-y-auto">
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border  flex gap-3  rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
 
-      <div className="px-5 py-3 border flex gap-3 rounded-xl cursor-pointer hover:bg-[#5479e5] hover:text-white mt-2">
-        <i class="bi bi-person-circle"></i>
-        <h1>Sachin Jakhar</h1>
+      <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
+        <i class="bi bi-person-circle text-3xl px-5"></i>
+        <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <h1>Sachin Jakhar</h1>
+        </div>
       </div>
     </div>
   );

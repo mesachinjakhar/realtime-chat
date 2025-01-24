@@ -1,13 +1,13 @@
 import ChatSection from "./components/ChatSection";
-import Auth from "./components/Auth";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import CreateJoinRoom from "./components/CreateJoinRoom";
+import Username from "./components/Username";
 
 function App() {
   return (
-    <div className="flex">
+    <div className="flex items-center bg-[#232e36]">
       <ChatSection />
-      <CreateJoinRoom />
+      <Username />
     </div>
   );
 }
