@@ -35,7 +35,7 @@ const Username = () => {
   }
   return (
     <div className="w-[400px] mx-auto text-white">
-      <h1 className="text-3xl font-bold">Login here</h1>
+      <h1 className="text-3xl font-bold">Set your username</h1>
       <form className="mt-5" onSubmit={formik.handleSubmit}>
         <label htmlFor="userId">Username</label>
         <input
@@ -54,7 +54,7 @@ const Username = () => {
           className="mt-2 p-2 bg-blue-600 text-white rounded hover:bg-blue-700"
           type="submit"
         >
-          Login
+          Start chatting
         </button>
       </form>
     </div>
