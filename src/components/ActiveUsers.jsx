@@ -10,6 +10,7 @@ import { setCurrentChatOpen } from "../store/features/currentOpenChat/currentOpe
 
 const ActiveUsers = () => {
   const activeUsers = useSelector((state) => state.activeUsers.activeUsers);
+  const user = useSelector((state) => state.user.username);
 
   const dispatch = useDispatch();
 
@@ -40,9 +41,14 @@ const ActiveUsers = () => {
     );
   }
 
-  function handleCurrentOpenChat(userId) {
-    console.log("Chat opened for user with id:", userId);
-    dispatch(setCurrentChatOpen(userId)); // Dispatching the userId instead of a fixed value
+  function handleCurrentOpenChat(id, username) {
+    console.log("Chat opened for user with id:", id);
+
+    if (!user) {
+      console.log("condition true");
+      return alert("Enter username to start chatting");
+    }
+    dispatch(setCurrentChatOpen({ id, username })); // Dispatching the userId instead of a fixed value
   }
 
   return (
@@ -55,7 +61,7 @@ const ActiveUsers = () => {
           >
             <i className="bi bi-person-circle text-3xl px-5"></i>
             <div
-              onClick={() => handleCurrentOpenChat(user.id)} // Pass the user id here
+              onClick={() => handleCurrentOpenChat(user.id, user.username)} // Pass the user id here
               className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0"
             >
               <h1>{user.username}</h1>

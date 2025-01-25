@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const currentOpenChatSlice = createSlice({
   name: "currentOpenChatSlice",
   initialState: {
-    socketId: "",
+    currentOpenChat: {},
   },
   reducers: {
     setCurrentChatOpen: (state, action) => {
-      state.socketId = action.payload; // `action.payload` holds the new username
+      state.currentOpenChat = action.payload; // `action.payload` holds the new username
     },
   },
 });

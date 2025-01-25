@@ -11,7 +11,7 @@ const UsernameForm = () => {
   const username = useSelector((state) => state.user.username);
   const status = useSelector((state) => state.user.status);
   const currentOpenChat = useSelector(
-    (state) => state.currentOpenChat.socketId
+    (state) => state.currentOpenChat.currentOpenChat
   );
 
   function handleSubmit(values) {
@@ -37,7 +37,7 @@ const UsernameForm = () => {
     );
   }
 
-  if (username.length > 0 && currentOpenChat.length > 0) {
+  if (username.length > 0 && currentOpenChat.id) {
     return;
   }
 
