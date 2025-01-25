@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./store/features/user/userSlice";
 import currentOpenChatReducer from "./store/features/currentOpenChat/currentOpenChatSlice";
-import activeUsersReducer from "./components/ActiveUsers";
+import activeUsersReducer from "./store/features/activeUsers/activeUsersSlice";
 
 const store = configureStore({
   reducer: {

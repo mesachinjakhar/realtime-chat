@@ -29,7 +29,7 @@ const UsernameForm = () => {
 
   // Emit event to add user in activeUsers
   if (username.length > 0) {
-    socket.emit("set-user", username);
+    socket.emit("add-user", username);
   }
 
   if (username.length > 0 && currentChatOpen.length === 0) {

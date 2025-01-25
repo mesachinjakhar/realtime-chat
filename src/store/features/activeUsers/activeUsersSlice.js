@@ -4,7 +4,7 @@ const activeUsersSlice = createSlice({
   name: "activeUsersSlice",
   initialState: {
     activeUsersCount: 0,
-    activeUsers: {},
+    activeUsers: [],
   },
   reducers: {
     setActiveUsersCount: (state, action) => {
