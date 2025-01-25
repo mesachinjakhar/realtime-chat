@@ -10,9 +10,6 @@ const User = () => {
   const status = useSelector((state) => state.user.status);
 
   socket.on("connect", () => {
-    socket.on("active-users", () => {
-      console.log("event registered");
-    });
     dispatch(setStatus());
   });
 

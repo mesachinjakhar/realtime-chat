@@ -6,13 +6,14 @@ import {
   setActiveUsersCount,
 } from "../store/features/activeUsers/activeUsersSlice";
 
+import { setCurrentChatOpen } from "../store/features/currentOpenChat/currentOpenChatSlice";
+
 const ActiveUsers = () => {
   const activeUsers = useSelector((state) => state.activeUsers.activeUsers);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("use effect rendered");
     const handleActiveUsers = (usersList) => {
       dispatch(setActiveUsers(usersList));
       dispatch(setActiveUsersCount(usersList.length));
@@ -39,13 +40,24 @@ const ActiveUsers = () => {
     );
   }
 
+  function handleCurrentOpenChat(userId) {
+    console.log("Chat opened for user with id:", userId);
+    dispatch(setCurrentChatOpen(userId)); // Dispatching the userId instead of a fixed value
+  }
+
   return (
     <div className="mt-5 h-[83vh] overflow-y-auto">
       {activeUsers.map((user) => {
         return (
-          <div className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white">
-            <i class="bi bi-person-circle text-3xl px-5"></i>
-            <div className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0">
+          <div
+            key={user.id}
+            className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white"
+          >
+            <i className="bi bi-person-circle text-3xl px-5"></i>
+            <div
+              onClick={() => handleCurrentOpenChat(user.id)} // Pass the user id here
+              className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0"
+            >
               <h1>{user.username}</h1>
             </div>
           </div>

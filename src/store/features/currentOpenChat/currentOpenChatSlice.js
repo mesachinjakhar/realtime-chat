@@ -6,11 +6,11 @@ const currentOpenChatSlice = createSlice({
     socketId: "",
   },
   reducers: {
-    setUsername: (state, action) => {
+    setCurrentChatOpen: (state, action) => {
       state.socketId = action.payload; // `action.payload` holds the new username
     },
   },
 });
 
-export const { setUsername } = currentOpenChatSlice.actions;
+export const { setCurrentChatOpen } = currentOpenChatSlice.actions;
 export default currentOpenChatSlice.reducer;

@@ -5,7 +5,5 @@ export function generateUsername(baseUsername) {
     .join(""); // Join the array into a string
 
   const generatedUsername = baseUsername + randomSuffix;
-
-  console.log(generatedUsername);
   return generatedUsername;
 }

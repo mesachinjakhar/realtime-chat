@@ -9,36 +9,46 @@ import socket from "../socket";
 const UsernameForm = () => {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.user.username);
-  const currentChatOpen = useSelector(
+  const status = useSelector((state) => state.user.status);
+  const currentOpenChat = useSelector(
     (state) => state.currentOpenChat.socketId
   );
 
   function handleSubmit(values) {
-    dispatch(setUsername(generateUsername(values.userId))); // Dispatch the action with the new username
+    dispatch(setUsername(generateUsername(values.userName))); // Dispatch the action with the new username
+    socket.emit("add-user", values.userName);
   }
 
   const formik = useFormik({
-    initialValues: { userId: "" },
+    initialValues: { userName: "" },
     validationSchema: Yup.object({
-      userId: Yup.string()
+      userName: Yup.string()
         .min(6, "Username must be at least 6 characters")
         .required("Username is required"),
     }),
     onSubmit: handleSubmit,
   });
 
-  // Emit event to add user in activeUsers
-  if (username.length > 0) {
-    socket.emit("add-user", username);
+  if (status === "Disconnected") {
+    return (
+      <div className="w-[500px] mx-auto text-white font-bold text-3xl">
+        Oops! Something went wrong.
+      </div>
+    );
   }
 
-  if (username.length > 0 && currentChatOpen.length === 0) {
+  if (username.length > 0 && currentOpenChat.length > 0) {
+    return;
+  }
+
+  if (username.length > 0) {
     return (
       <div className="w-[500px] mx-auto text-white font-bold text-lg">
         Welcome! Select any user from sidebar to start chatting
       </div>
     );
   }
+
   return (
     <div className="w-[400px] mx-auto text-white">
       <h1 className="text-3xl font-bold">Set your username</h1>
@@ -46,15 +56,15 @@ const UsernameForm = () => {
         <label htmlFor="userId">Username</label>
         <input
           type="text"
-          id="userId"
-          name="userId"
+          id="userName"
+          name="userName"
           className="block w-full mt-1 p-2 border rounded"
-          value={formik.values.userId}
+          value={formik.values.userName}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        {formik.touched.userId && formik.errors.userId ? (
-          <p className="text-red-600">{formik.errors.userId}</p>
+        {formik.touched.userName && formik.errors.userName ? (
+          <p className="text-red-600">{formik.errors.userName}</p>
         ) : null}
         <button
           className="mt-2 p-2 bg-blue-600 text-white rounded hover:bg-blue-700"
