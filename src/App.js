@@ -1,12 +1,12 @@
-import ChatSection from "./components/ChatSection";
+import Sidebar from "./components/Sidebar";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Username from "./components/Username";
+import UsernameForm from "./components/UsernameForm";
 
 function App() {
   return (
     <div className="flex items-center bg-[#232e36]">
-      <ChatSection />
-      <Username />
+      <Sidebar />
+      <UsernameForm />
     </div>
   );
 }

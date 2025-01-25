@@ -6,7 +6,7 @@ import { setUsername } from "../store/features/user/userSlice";
 import { generateUsername } from "../utils/generateUsername";
 import socket from "../socket";
 
-const Username = () => {
+const UsernameForm = () => {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.user.username);
   const currentChatOpen = useSelector(
@@ -67,4 +67,4 @@ const Username = () => {
   );
 };
 
-export default Username;
+export default UsernameForm;

@@ -10,8 +10,8 @@ const activeUsersSlice = createSlice({
     setActiveUsersCount: (state, action) => {
       state.activeUsersCount = action.payload; // `action.payload` holds the new username
     },
-    setActiveUsers: (state) => {
-      state.activeUsers = "Connected ✅"; // `action.payload` holds the new username
+    setActiveUsers: (state, action) => {
+      state.activeUsers = action.payload; // `action.payload` holds the active users array
     },
   },
 });
