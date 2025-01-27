@@ -16,6 +16,7 @@ const ChatInput = () => {
   }
 
   function handleMessageEmmit() {
+    setMessage("");
     const sendMessage = { to: currentOpenChat.id, message: message };
     dispatch(
       setMessages({
