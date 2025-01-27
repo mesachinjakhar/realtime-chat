@@ -42,10 +42,7 @@ const ActiveUsers = () => {
   }
 
   function handleCurrentOpenChat(id, username) {
-    console.log("Chat opened for user with id:", id);
-
     if (!user) {
-      console.log("condition true");
       return alert("Enter username to start chatting");
     }
     dispatch(setCurrentChatOpen({ id, username })); // Dispatching the userId instead of a fixed value

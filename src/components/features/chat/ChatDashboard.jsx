@@ -9,8 +9,6 @@ const ChatDashboard = () => {
     (state) => state.currentOpenChat.currentOpenChat
   );
 
-  console.log(currentOpenChat.id);
-
   if (currentOpenChat.id) {
     return (
       <div className="h-[100vh] w-[70%] text-white bg-[#232e36]">

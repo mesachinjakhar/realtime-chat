@@ -14,9 +14,11 @@ const UsernameForm = () => {
     (state) => state.currentOpenChat.currentOpenChat
   );
 
-  function handleSubmit(values) {
-    dispatch(setUsername(generateUsername(values.userName))); // Dispatch the action with the new username
-    socket.emit("add-user", values.userName);
+  async function handleSubmit(values) {
+    const generatedUsername = await generateUsername(values.userName);
+    dispatch(setUsername(generatedUsername)); // Dispatch the action with the new username
+    console.log("emmiting user with username: ", generatedUsername);
+    socket.emit("add-user", generatedUsername);
   }
 
   const formik = useFormik({
