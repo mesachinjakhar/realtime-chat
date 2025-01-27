@@ -10,7 +10,7 @@ import { setCurrentChatOpen } from "../../../store/features/currentOpenChat/curr
 
 const ActiveUsers = () => {
   const activeUsers = useSelector((state) => state.activeUsers.activeUsers);
-  const user = useSelector((state) => state.user.username);
+  const currentUser = useSelector((state) => state.user.username);
 
   const dispatch = useDispatch();
 
@@ -42,7 +42,7 @@ const ActiveUsers = () => {
   }
 
   function handleCurrentOpenChat(id, username) {
-    if (!user) {
+    if (!username) {
       return alert("Enter username to start chatting");
     }
     dispatch(setCurrentChatOpen({ id, username })); // Dispatching the userId instead of a fixed value

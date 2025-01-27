@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUsername } from "../../../store/features/user/userSlice";
 import { generateUsername } from "../../../utils/generateUsername";
 import socket from "../../../socket";
+import { setMessages } from "../../../store/features/messages/messagesSlice";
 
 const UsernameForm = () => {
   const dispatch = useDispatch();
@@ -17,8 +18,12 @@ const UsernameForm = () => {
   async function handleSubmit(values) {
     const generatedUsername = await generateUsername(values.userName);
     dispatch(setUsername(generatedUsername)); // Dispatch the action with the new username
-    console.log("emmiting user with username: ", generatedUsername);
     socket.emit("add-user", generatedUsername);
+
+    // Add listner to messages
+    socket.on("message", (msg) => {
+      dispatch(setMessages(msg));
+    });
   }
 
   const formik = useFormik({

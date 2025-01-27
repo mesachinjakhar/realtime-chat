@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import socket from "../../../socket";
+import { setMessages } from "../../../store/features/messages/messagesSlice";
 
 const ChatInput = () => {
+  const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const currentOpenChat = useSelector(
     (state) => state.currentOpenChat.currentOpenChat
@@ -14,11 +16,19 @@ const ChatInput = () => {
   }
 
   function handleMessageEmmit() {
-    socket.emit("new-message", message);
+    const sendMessage = { to: currentOpenChat.id, message: message };
+    dispatch(
+      setMessages({
+        type: "client",
+        to: currentOpenChat.id,
+        from: "",
+        message: message,
+      })
+    );
+    socket.emit("new-message", sendMessage);
   }
 
   if (currentOpenChat.username == user) {
-    console.log("condition true");
     return (
       <div className=" flex justify-center">
         Sorry you cant send message to yourself
