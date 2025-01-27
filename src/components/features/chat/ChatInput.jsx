@@ -6,12 +6,14 @@ import { setMessages } from "../../../store/features/messages/messagesSlice";
 const ChatInput = () => {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
+  const [isSent, setIsSent] = useState(false);
   const currentOpenChat = useSelector(
     (state) => state.currentOpenChat.currentOpenChat
   );
   const user = useSelector((state) => state.user.username);
 
   function handleMessageChange(e) {
+    setIsSent(false);
     setMessage(e.target.value);
   }
 
@@ -19,6 +21,7 @@ const ChatInput = () => {
     if (!message) {
       return alert("Enter message");
     }
+    setIsSent(true);
     setMessage("");
     const sendMessage = { to: currentOpenChat.id, message: message };
     dispatch(
@@ -51,7 +54,11 @@ const ChatInput = () => {
       />
       <i
         onClick={handleMessageEmmit}
-        className="bi bi-send text-2xl cursor-pointer"
+        className={
+          isSent == false
+            ? "bi bi-send text-2xl cursor-pointer"
+            : "bi bi-check-lg text-2xl cursor-pointer"
+        }
       ></i>
     </div>
   );
