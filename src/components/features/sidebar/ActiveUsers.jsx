@@ -41,30 +41,32 @@ const ActiveUsers = () => {
     );
   }
 
-  function handleCurrentOpenChat(id, username) {
-    if (!username) {
+  function handleCurrentOpenChat(user) {
+    if (!currentUser) {
       return alert("Enter username to start chatting");
     }
-    dispatch(setCurrentChatOpen({ id, username })); // Dispatching the userId instead of a fixed value
+    dispatch(setCurrentChatOpen({ id: user.id, username: user.username })); // Dispatching the userId instead of a fixed value
   }
 
   return (
     <div className="mt-5 h-[83vh] overflow-y-auto">
       {activeUsers.map((user) => {
-        return (
-          <div
-            key={user.id}
-            className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white"
-          >
-            <i className="bi bi-person-circle text-3xl px-5"></i>
+        if (user.username != currentUser) {
+          return (
             <div
-              onClick={() => handleCurrentOpenChat(user.id, user.username)} // Pass the user id here
-              className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0"
+              key={user.id}
+              className=" flex items-center cursor-pointer hover:bg-[#5479e5] hover:text-white"
             >
-              <h1>{user.username}</h1>
+              <i className="bi bi-person-circle text-3xl px-5"></i>
+              <div
+                onClick={() => handleCurrentOpenChat(user)} // Pass the user id here
+                className=" border-[0.5px] border-gray-500 border-t-0 border-l-0 border-r-0 w-[100%] py-4 hover:border-0"
+              >
+                <h1>{user.username}</h1>
+              </div>
             </div>
-          </div>
-        );
+          );
+        }
       })}
     </div>
   );
