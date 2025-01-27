@@ -34,7 +34,7 @@ const ChatInput = () => {
 
   if (currentOpenChat.username == user) {
     return (
-      <div className=" flex justify-center">
+      <div className=" flex justify-center items-center mt-5 ">
         Sorry you cant send message to yourself
       </div>
     );
@@ -47,6 +47,7 @@ const ChatInput = () => {
         onChange={handleMessageChange}
         className="border-0 rounded-lg bg-[#283942] p-3 text-white"
         type="text"
+        placeholder="type message"
       />
       <i
         onClick={handleMessageEmmit}
