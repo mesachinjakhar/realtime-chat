@@ -17,7 +17,7 @@ const ChatInput = () => {
     setMessage(e.target.value);
   }
 
-  function handleMessageEmmit() {
+  function handleMessageEmmit(e) {
     if (!message) {
       return alert("Enter message");
     }
@@ -52,6 +52,7 @@ const ChatInput = () => {
         type="text"
         placeholder="type message"
       />
+
       <i
         onClick={handleMessageEmmit}
         className={
