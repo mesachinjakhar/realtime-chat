@@ -12,7 +12,6 @@ const ChatDashboard = () => {
   console.log(currentOpenChat.id);
 
   if (currentOpenChat.id) {
-    console.log("condition true ");
     return (
       <div className="h-[100vh] w-[70%] text-white bg-[#232e36]">
         <ChatHeader />

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import socket from "../socket";
+import socket from "../../../socket";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setActiveUsers,
   setActiveUsersCount,
-} from "../store/features/activeUsers/activeUsersSlice";
+} from "../../../store/features/activeUsers/activeUsersSlice";
 
-import { setCurrentChatOpen } from "../store/features/currentOpenChat/currentOpenChatSlice";
+import { setCurrentChatOpen } from "../../../store/features/currentOpenChat/currentOpenChatSlice";
 
 const ActiveUsers = () => {
   const activeUsers = useSelector((state) => state.activeUsers.activeUsers);

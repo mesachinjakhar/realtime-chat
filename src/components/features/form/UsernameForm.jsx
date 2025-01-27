@@ -2,9 +2,9 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { setUsername } from "../store/features/user/userSlice";
-import { generateUsername } from "../utils/generateUsername";
-import socket from "../socket";
+import { setUsername } from "../../../store/features/user/userSlice";
+import { generateUsername } from "../../../utils/generateUsername";
+import socket from "../../../socket";
 
 const UsernameForm = () => {
   const dispatch = useDispatch();

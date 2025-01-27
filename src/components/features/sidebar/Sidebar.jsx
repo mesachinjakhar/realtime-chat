@@ -1,6 +1,6 @@
 import React from "react";
 import ActiveUsers from "./ActiveUsers";
-import User from "./User";
+import User from "../user/User";
 import { useSelector } from "react-redux";
 
 const Sidebar = () => {

@@ -7,7 +7,7 @@ const ChatInput = () => {
         className="border-0 rounded-lg bg-[#283942] p-3 text-white"
         type="text"
       />
-      <a>Send</a>
+      <i className="bi bi-send text-2xl cursor-pointer"></i>
     </div>
   );
 };

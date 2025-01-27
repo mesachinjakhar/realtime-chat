@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import socket from "../socket";
-import { setStatus } from "../store/features/user/userSlice";
+import socket from "../../../socket";
+import { setStatus } from "../../../store/features/user/userSlice";
 import { useDispatch } from "react-redux";
 
 const User = () => {

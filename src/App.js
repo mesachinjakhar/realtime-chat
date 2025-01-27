@@ -1,7 +1,7 @@
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/features/sidebar/Sidebar";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import UsernameForm from "./components/UsernameForm";
-import ChatDashboard from "./components/ChatDashboard";
+import UsernameForm from "./components/features/form/UsernameForm";
+import ChatDashboard from "./components/features/chat/ChatDashboard";
 
 function App() {
   return (
